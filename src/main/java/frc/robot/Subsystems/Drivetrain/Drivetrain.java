@@ -133,6 +133,11 @@ public class Drivetrain {
         );
     }
 
+    public void turnAngle(double angle) {
+        double currentAngle = gyro.getRotation2d().getDegrees();
+        drive(0.0, 0.0, Constants.turnPID.calculate(currentAngle, angle));
+    }
+
     public MecanumDriveWheelPositions getPosition() {
         return new MecanumDriveWheelPositions(
             LeftFrontEncoder.getPosition(),

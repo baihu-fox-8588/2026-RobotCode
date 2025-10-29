@@ -7,6 +7,7 @@ import com.revrobotics.spark.config.ClosedLoopConfig;
 import com.revrobotics.spark.config.ClosedLoopConfig.FeedbackSensor;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -56,4 +57,6 @@ public class Constants {
     public static final ClosedLoopConfig RightBackPID = new ClosedLoopConfig()
         .pidf(0.1, 0.0, 0.0, 1 / 1000)
         .feedbackSensor(FeedbackSensor.kPrimaryEncoder);
+
+    public static final PIDController turnPID = new PIDController(0.01, 0.0, 0.0);
 }
